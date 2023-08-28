@@ -10,16 +10,16 @@ class Solution {
         Map<Integer, String> table = new HashMap<>();
         int n = names.length;
 
-        for (int i = 0; i < names.length; i++) {
+        for (int i = 0; i < n; i++) {
             table.put(heights[i], names[i]);
         }
 
         Arrays.sort(heights); //ex. height = [165, 170, 180]
 
-        int index = 0
+        int index = 0;
         String[] result = new String[n];
 
-        for (int i = heights.length - 1; i >= 0; i--) {
+        for (int i = n - 1; i >= 0; i--) {
             result[index++] = table.get(heights[i]);
         }
 

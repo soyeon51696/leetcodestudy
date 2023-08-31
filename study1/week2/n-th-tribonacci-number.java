@@ -20,6 +20,26 @@ class Solution {
         }
         
         return result[n];
+
+        //for O(1) of space complexity -> don't need to make a new array, but create simply normal int value and save it there
+        /*
+        if (n <= 2) {
+            return n == 0 ? 0 : 1;
+        }
+        
+        int sum = 0;
+        int first = 0;
+        int second = 1;
+        int third = 1;
+
+        for (int i = 3; i <= n; i++) {
+            sum = first + second + third;
+            first = second;
+            second = third;
+            third = sum;
+        }
+        return sum;       
+        */
     
     }
 }

@@ -5,7 +5,7 @@ class Solution {
         //Palindrome -> reads the same backwards as forwards
         //how to check? -> if reverse string is same as original string
       
-        //thennnn
+        //then
 
         //what rule? -> (even number of alphabets) or (even number of alphabets + only one odd number of alphabets) -> 2n or 2n+1
         //Then check how many each letter is -> use count value
@@ -13,8 +13,8 @@ class Solution {
         //After repeating, there are odd numbers left at the end? -> return count*2 + 1
         //Put s into the hashset, and count+1 if it already exists, then delete it, so i can figure out when there are odd numbers
 
-        //so time complexity is O(n)
-        //space complexity is also O(n)
+        //Time complexity is O(n), because if String s has length n, it will be visited n times
+        //Space complexity is O(1), because this hashmap will only contain at maximum 26 characters - which is constant
 
         int count = 0;
         HashSet<Character> charSet = new HashSet<>();

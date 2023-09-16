@@ -11,25 +11,25 @@ class Solution {
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
 
-        for (int y = 0; y < m; y++) {
-            for (int x = 0; x < n; x++) {
-                if (grid[y][x] == 1) {
+        for (int x = 0; x < m; x++) { //x : 0~m
+            for (int y = 0; y < n; y++) { //y : 0~n
+                if (grid[x][y] == 1) {
                     int area = 0;
                     Queue<int[]> queue = new LinkedList<>();
-                    queue.offer(new int[]{y, x});
-                    grid[y][x] = 0;
+                    queue.offer(new int[]{x, y});
+                    grid[x][y] = 0;
 
                     while (!queue.isEmpty()) {
                         int[] point = queue.poll();
                         area++;
                         for (int[] dir : directions) {
-                            int newY = point[0] + dir[0];
-                            int newX = point[1] + dir[1];
+                            int newX = point[0] + dir[0]; 
+                            int newY = point[1] + dir[1];
 
-                            if (newY >= 0 && newY < m && newX >= 0 && newX < n && grid[newY][newX] == 1) {
-                                queue.offer(new int[]{newY, newX});
+                            if (newY >= 0 && newY < n && newX >= 0 && newX < m && grid[newX][newY] == 1) {
+                                queue.offer(new int[]{newX, newY});
                                 // change the cell as visited to 0
-                                grid[newY][newX] = 0;
+                                grid[newX][newY] = 0;
                             }
                         }
                     }

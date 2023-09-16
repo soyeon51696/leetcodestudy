@@ -2,12 +2,11 @@
 
 class Solution {
     //time complexity is O(n)
-    //space complexity is O(n), because n call stacks?
+    //space complexity is O(n), because n call stacks
   
     public boolean validPalindrome(String s) {
         int start = 0;
         int end = s.length() - 1;
-        boolean unEqual = false;
 
         while (start < end) {
             if (s.charAt(start) != s.charAt(end)) {

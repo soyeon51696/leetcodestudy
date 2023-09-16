@@ -17,8 +17,8 @@ class Solution {
         // int[] l = {0, 1};
         // int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-        int n = image.length;
-        int m = image[0].length;
+        int m = image.length; //row
+        int n = image[0].length; //column
 
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{sr, sc});
@@ -30,18 +30,16 @@ class Solution {
 
             image[x][y] = color;
 
-            //to avoid an unnecessary comparison
-            //It's better in these case to unroll this loop and compare one by one
             if (y > 0  && image[x][y - 1] == originalColor) {
                 queue.add(new int[]{x, y - 1});
             }
-            if (y < m - 1 && image[x][y + 1] == originalColor) {
+            if (y < n - 1 && image[x][y + 1] == originalColor) {
                 queue.add(new int[]{x, y + 1});
             }
             if (x > 0  && image[x - 1][y] == originalColor) {
                 queue.add(new int[]{x - 1, y});
             }
-            if (x < n - 1 && image[x + 1][y] == originalColor) {
+            if (x < m - 1 && image[x + 1][y] == originalColor) {
                 queue.add(new int[]{x + 1, y});
             }         
 

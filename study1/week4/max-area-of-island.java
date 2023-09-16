@@ -1,4 +1,5 @@
 //https://leetcode.com/problems/max-area-of-island/description/
+//recursive version
 
 class Solution {
     public int maxAreaOfIsland(int[][] grid) {

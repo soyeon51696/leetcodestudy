@@ -21,16 +21,26 @@ class Solution {
 
                     while (!queue.isEmpty()) {
                         int[] point = queue.poll();
+                        int curX = point[0];
+                        int curY = point[1];
                         area++;
-                        for (int[] dir : directions) {
-                            int newX = point[0] + dir[0]; 
-                            int newY = point[1] + dir[1];
 
-                            if (newY >= 0 && newY < n && newX >= 0 && newX < m && grid[newX][newY] == 1) {
-                                queue.offer(new int[]{newX, newY});
-                                // change the cell as visited to 0
-                                grid[newX][newY] = 0;
-                            }
+                        //delete unnecessary comparisons by using different if statements for each condition 
+                        if (curY > 0  && grid[curX][curY - 1] == 1) {
+                            queue.add(new int[]{curX, curY - 1});
+                            grid[curX][curY - 1] = 0; 
+                        }
+                        if (curY < n - 1 && grid[curX][curY + 1] == 1) {
+                            queue.add(new int[]{curX, curY + 1});
+                            grid[curX][curY + 1] = 0; 
+                        }
+                        if (curX > 0  && grid[curX - 1][curY] == 1) {
+                            queue.add(new int[]{curX - 1, curY});
+                            grid[curX - 1][curY] = 0; 
+                        }
+                        if (curX < m - 1 && grid[curX + 1][curY] == 1) {
+                            queue.add(new int[]{curX + 1, curY});
+                            grid[curX + 1][curY] = 0;
                         }
                     }
                     maxArea = Math.max(maxArea, area);
